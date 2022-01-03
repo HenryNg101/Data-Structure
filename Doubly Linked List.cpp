@@ -8,10 +8,7 @@ struct Node{
     Node* prev;
 };
 
-Node* head = new Node();
-Node* tail = new Node();
-
-void InsertNodeAtHead(int x){
+void InsertAtHead(int x, Node *head, Node *tail){
     Node* element = new Node();
     element->data = x;
     element->next = NULL;
@@ -26,8 +23,9 @@ void InsertNodeAtHead(int x){
     head = element;
 }
 
-void PrintList(){
-    Node* traverse = head;
+void PrintList(Node *head){
+    Node* traverse = new Node();
+	traverse = head;
     while(traverse->next != NULL){
         cout << traverse->data << " ";
         traverse = traverse->next;
@@ -35,26 +33,12 @@ void PrintList(){
     cout << traverse->data << endl;
 }
 
-void PrintListReverseOrder(){
-	Node* traverse = tail;
+void PrintListReverseOrder(Node *tail){
+	Node *traverse = new Node();
+	traverse = tail;
 	while(traverse->prev != NULL){
 		cout << traverse->data << " ";
 		traverse = traverse->prev;
 	}
 	cout << traverse->data;
-}
-
-int main()
-{
-    head = NULL;
-    tail = NULL;
-    int k, n;
-    cin >> n;
-    for(int i=0; i<n; i++){
-        cin >> k;
-        InsertNodeAtHead(k);
-    }
-    PrintList();
-    PrintListReverseOrder();
-    return 0;
 }
