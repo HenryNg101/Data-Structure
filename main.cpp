@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Singly Linked List.h"
+#include "Binary Tree.h"
 
 using namespace std;
 
@@ -52,16 +53,29 @@ void SinglyLinkedListTest(){
 	PrintList(head);
 }
 
-/*
-void DoublyLinkedListTest(){
+void BinaryTreeTest(){
+	//Tree creation
+	btree *root = NULL;
+	int start = 1;
+	root = CreateTree(root, 2, &start);
+	
+	//Traversal
+	cout << "Preorder traversal (Root, Left, Right) (DFS) of the tree: ";
+	preorder_traversal(root);
+	cout << endl;
+	cout << "Inorder traversal (Left, Root, Right) of the tree: ";
+	inorder_traversal(root);
+	cout << endl;
+	cout << "Postorder traversal (Left, Right, Root) of the tree: ";
+	postorder_traversal(root);
+	cout << endl;
+	cout << "Levelorder traversal (BFS) of the tree: ";
+	LevelorderTraversal(root);
+	cout << endl;
 }
 
-void BinarySearchTreeTest(){
-}*/
-
 int main(){
-	SinglyLinkedListTest();
-	//DoublyLinkedListTest();
-	//BinarySearchTreeTest();
+	//SinglyLinkedListTest();
+	BinaryTreeTest();
 	return 0;
 }
